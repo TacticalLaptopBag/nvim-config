@@ -50,24 +50,28 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+            -- Autocompletion
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			-- Setup LSPs
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
-			lspconfig.tsserver.setup({})
-			lspconfig.clangd.setup({})
-			lspconfig.autotools_ls.setup({})
-			lspconfig.bashls.setup({})
-			lspconfig.jsonls.setup({})
-			lspconfig.ltex.setup({})
-			lspconfig.marksman.setup({})
-			lspconfig.ruff_lsp.setup({})
-			lspconfig.jdtls.setup({})
-			lspconfig.kotlin_language_server.setup({})
+			lspconfig.lua_ls.setup({ capabilites = capabilities })
+			lspconfig.tsserver.setup({ capabilites = capabilities })
+			lspconfig.clangd.setup({ capabilites = capabilities })
+			lspconfig.autotools_ls.setup({ capabilites = capabilities })
+			lspconfig.bashls.setup({ capabilites = capabilities })
+			lspconfig.jsonls.setup({ capabilites = capabilities })
+			lspconfig.ltex.setup({ capabilites = capabilities })
+			lspconfig.marksman.setup({ capabilites = capabilities })
+			lspconfig.ruff_lsp.setup({ capabilites = capabilities })
+			lspconfig.jdtls.setup({ capabilites = capabilities })
+			lspconfig.kotlin_language_server.setup({ capabilites = capabilities })
 
 			-- Omnisharp Configuration
 			local pid = vim.fn.getpid()
 			local omnisharp_path = vim.fn.expand("$HOME/.local/opt/omnisharp/OmniSharp")
 			lspconfig.omnisharp.setup({
+                capabilites = capabilities,
 				cmd = { omnisharp_path, "--languageserver", "--hostPID", tostring(pid) },
 			})
 
