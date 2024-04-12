@@ -1,0 +1,8 @@
+nvim/pack
+kitty/local.conf
+kitty/local_color.conf
+i3/polybar/local
+bspwm/bspwmrc.local
+lazygit/*
+!lazygit/config.yml
+
