@@ -2,6 +2,9 @@
 -- <leader>w = Workspace...
 -- <leader>b = Debug Action...
 
+-- Select all
+vim.keymap.set("n", "<leader>aa", "gg0VG$", {})
+
 -- Show information about function
 vim.keymap.set("n", "<leader><leader>", vim.lsp.buf.hover, {})
 
